@@ -1,0 +1,21 @@
+.card-story {
+    width: 280px;
+    margin: 10px;
+    float: left;
+}
+
+.card-body-story {
+    height: 180px;
+}
+
+.card-story-image {
+    height: 180px;
+}
+
+.card-story-actions {
+    position: absolute;
+    width: 85%;
+    bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
