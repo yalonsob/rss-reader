@@ -27,7 +27,7 @@ class FeedStory extends React.Component {
             <div class="card card-story">
                 <img class="card-img-top card-story-image" src={this.props.story.imageURL} alt="Story image" />
                 <div class="card-body card-body-story">
-                    <h5 class="card-title">{this.props.story.title}</h5>
+                    <h5 class="card-title card-title-story">{this.props.story.title}</h5>
                     <div class="card-story-actions">
                         <button onClick={this.handleFavorite} class="favorite-btn">
                             <img alt="favorite" 

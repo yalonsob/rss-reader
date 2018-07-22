@@ -21,9 +21,9 @@ class StoryPage extends React.Component {
     render() {
         let html = { __html: this.state.story && this.state.story.rawContent };
         return (
-            <div class="container">
-                <h1>{this.state.story && this.state.story.title}</h1>
-                <div dangerouslySetInnerHTML={html}></div>
+            <div class="container content-story">
+                <h1 class="content-story-title">{this.state.story && this.state.story.title}</h1>
+                <div class="content-story-main" dangerouslySetInnerHTML={html}></div>
             </div>
         )
     }

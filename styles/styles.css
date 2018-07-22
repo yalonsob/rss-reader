@@ -25,6 +25,13 @@ header {
     height: 180px;
 }
 
+.card-title-story {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
 .card-story-image {
     height: 180px;
 }
@@ -44,4 +51,25 @@ header {
 
 .favorite-btn:focus {
     outline: none;
+}
+
+.content-story {
+    background: white;
+}
+
+.content-story img,
+.content-story iframe {
+    max-width: 80%;
+    margin: auto;
+    display: block;
+}
+
+.content-story-title {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.content-story-main {
+    padding: 30px;
+    text-align: justify;
 }
