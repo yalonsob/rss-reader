@@ -1,3 +1,8 @@
+const feedURL = {
+    'backchannel': 'https://medium.com/feed/backchannel',
+    'the-economist': 'https://medium.com/feed/the-economist',
+    'matter': 'https://medium.com/feed/matter'
+}
 
 const createContentDOM = (content) => {
     let contentDOM = document.createElement('div');
@@ -19,7 +24,7 @@ const parseItemToStory = (item) => {
         imageURL: imageURL,
         categories: item.categories,
         rawContent: item['content:encoded'],
-        bookmarked: false
+        bookmarked: false,
     };
 };
 

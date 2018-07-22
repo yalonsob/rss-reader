@@ -78,3 +78,9 @@ header {
     margin-left: 10px;
     width: 80% !important;
 }
+
+.search-dropdown,
+.search-dropdown:hover {
+    background: #f8f9fa;
+    color: black;
+}
