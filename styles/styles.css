@@ -1,8 +1,8 @@
-body {
+/* body {
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
+} */
 
 .card-story {
     width: 280px;
@@ -24,4 +24,13 @@ body {
     bottom: 15px;
     display: flex;
     justify-content: space-between;
+}
+
+.favorite-btn {
+    border: none;
+    cursor: pointer;   
+}
+
+.favorite-btn:focus {
+    outline: none;
 }

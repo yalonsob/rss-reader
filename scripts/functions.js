@@ -51,20 +51,22 @@ const getStories = () => {
 
         parser.parseURL(CORS_PROXY + backchannelURL, function (err, feed) {
             let stories = feed.items.map((item) => parseItemToStory(item));
-            // TODO SAVE STORIES IN LOCAL STORAGE
-            //saveStories(stories);
+            saveStories(stories);
             resolve(stories);
             return;
         });
     });
 };
 
+const updateStory = (storyId, newStory) => {
+    getStories().then((stories) => {
+        let newStories = stories.map((story) => {
+            return (story.id === storyId) ? newStory : story;
+        });
+        saveStories(newStories);
+    });
+};
 
-
-
-// getStories().then((stories) => {
-//     console.log(stories);
-// });
 
 
 

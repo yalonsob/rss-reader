@@ -14,6 +14,7 @@ const App = () => (
                 </nav>
                 <Switch>
                     <Route exact path="/" component={FeedPage} />
+                    <Route path="/story/:id" component={StoryPage} />
                     
                 </Switch>
             </div>
