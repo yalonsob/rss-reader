@@ -13,6 +13,7 @@ class FeedSearch extends React.Component {
 
     handleChangeFeed(e) {
         const feedName = e.target.value;
+        document.querySelector('#dropdownMenu2').textContent = e.target.textContent;
         this.props.handleChangeFeed(feedName);
     }
 
@@ -26,7 +27,7 @@ class FeedSearch extends React.Component {
                 <form onSubmit={this.handleSubmit} class="form-inline my-2 my-lg-0">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle search-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Choose your feed
+                            All Stories
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="all">All Stories</button>
