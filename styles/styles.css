@@ -1,8 +1,19 @@
-/* body {
+body {
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-} */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.page {
+    margin-top: 50px;
+}
 
 .card-story {
     width: 280px;

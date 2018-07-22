@@ -4,19 +4,22 @@ const Link = ReactRouterDOM.Link;
 const Switch = ReactRouterDOM.Switch;
 
 const App = () => (
-    <div class="container">
+    <div>
         <Router>
             <div>
-                <nav class="navbar navbar-default">
-                    <ul class="nav navbar-nav">
-                        <li role="presentation"><Link to="/">RSS Reader</Link></li>
-                    </ul>
-                </nav>
-                <Switch>
-                    <Route exact path="/" component={FeedPage} />
-                    <Route path="/story/:id" component={StoryPage} />
-                    
-                </Switch>
+                <header>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <ul class="nav navbar-nav">
+                            <li role="presentation"><Link to="/">RSS Reader</Link></li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="container page">
+                    <Switch>
+                        <Route exact path="/" component={FeedPage} />
+                        <Route path="/story/:id" component={StoryPage} />
+                    </Switch>
+                </div>
             </div>
         </Router>
     </div>
