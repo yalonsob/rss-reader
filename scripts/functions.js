@@ -55,13 +55,25 @@ const getStories = () => {
         let stories = getSavedStories();
 
         if(stories) {
-            resolve(stories);
+            resolve(sortStoriesByDate(stories));
             return;
         }
 
         getAllStoriesFromFeeds(supportedFeeds).then((stories) => {
-            resolve(stories);
+            resolve(sortStoriesByDate(stories));
         });
+    });
+};
+
+const sortStoriesByDate = (stories) => {
+    return stories.sort((a, b) => {
+        if (a.date > b.date) {
+            return -1;
+        } else if (a.date < b.date) {
+            return 1
+        } else {
+            return 0;
+        }
     });
 };
 
@@ -111,6 +123,15 @@ const getFeedName = (feed) => {
 
 const getFormattedDate = (date) => {
     return moment(date).format('DD MMM YYYY');
+};
+
+const getSearchedStories = (stories, searchText, feedName) => {
+    return stories
+        .filter((story) => feedName === 'all' || story.feedName === feedName)
+        .filter((story) => {
+            const stringified = [story.title, story.categories.join()].join().toLowerCase();
+            return stringified.indexOf(searchText) >= 0;
+        });
 };
 
 

@@ -6,7 +6,9 @@ class FeedPage extends React.Component {
         this.handleChangeFeed = this.handleChangeFeed.bind(this);
         this.state = {
             stories: [],
-            searchedStories: []
+            searchedStories: [],
+            selectedFeed: 'all',
+            searchText: ''
         };
     };
 
@@ -22,16 +24,20 @@ class FeedPage extends React.Component {
     handleSearch(searchText) {
         searchText = searchText.trim();
         this.setState((prevState) => ({
-            searchedStories: prevState.stories.filter((story) => {
-                const stringified = [story.title, story.categories.join()].join().toLowerCase();
-                return stringified.indexOf(searchText) >= 0;
-            })
+            searchText: searchText,
+            searchedStories: getSearchedStories(prevState.stories, searchText, prevState.selectedFeed)
+            // searchedStories: prevState.stories.filter((story) => {
+            //     const stringified = [story.title, story.categories.join()].join().toLowerCase();
+            //     return stringified.indexOf(searchText) >= 0;
+            // })
         }));
     };
 
     handleChangeFeed(feedName) {
         this.setState((prevState) => ({
-            searchedStories: prevState.stories.filter((story) => feedName === 'all' || story.feedName === feedName)
+            selectedFeed: feedName,
+            searchedStories: getSearchedStories(prevState.stories, prevState.searchText, feedName)
+            // searchedStories: prevState.stories.filter((story) => feedName === 'all' || story.feedName === feedName)
         }));
     }
     
