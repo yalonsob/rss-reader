@@ -26,7 +26,6 @@ class FeedPage extends React.Component {
                 return stringified.indexOf(searchText) >= 0;
             })
         }))
-
     }
     
     render() {
