@@ -28,12 +28,16 @@ header {
 .card-title-story {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
 .card-story-image {
     height: 180px;
+}
+
+.card-story-details {
+    font-size: .8em;
 }
 
 .card-story-actions {

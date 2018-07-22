@@ -100,6 +100,15 @@ const updateStory = (storyId, newStory) => {
     });
 };
 
+const feedName = (feed) => {
+    const feeds = {
+        'backchannel': 'Backchannel',
+        'the-economist': 'The Economist',
+        'matter': 'Matter'
+    };
+    return feeds[feed];
+}
+
 
 
 
