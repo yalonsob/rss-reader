@@ -13,6 +13,7 @@ const App = () => (
                             <li role="presentation"><Link to="/">RSS Reader</Link></li>
                         </ul>
                     </nav>
+                    
                 </header>
                 <div class="container page">
                     <Switch>

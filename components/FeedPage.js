@@ -2,23 +2,40 @@ class FeedPage extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handleSearch = this.handleSearch.bind(this);
         this.state = {
-            stories: []
+            stories: [],
+            searchedStories: []
         };
     }
 
     componentDidMount() {
         getStories().then((stories) => {
             this.setState((prevState) => ({
-                stories: stories
+                stories: stories,
+                searchedStories: stories
             }));
         });
+    }
+
+    handleSearch(searchText) {
+        searchText = searchText.trim();
+        this.setState((prevState) => ({
+            searchedStories: prevState.stories.filter((story) => {
+                const stringified = [story.title, story.categories.join()].join().toLowerCase();
+                return stringified.indexOf(searchText) >= 0;
+            })
+        }))
+
     }
     
     render() {
         return (
             <div>
-                {this.state.stories.map((story) => <FeedStory story={story} /> )}
+                <div>
+                    <FeedSearch handleSearch={this.handleSearch} />
+                </div>
+                {this.state.searchedStories.map((story) => <FeedStory story={story} /> )}
             </div>
         );
     }
