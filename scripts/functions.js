@@ -1,8 +1,15 @@
-const feedURL = {
-    'backchannel': 'https://medium.com/feed/backchannel',
-    'the-economist': 'https://medium.com/feed/the-economist',
-    'matter': 'https://medium.com/feed/matter'
-}
+const supportedFeeds = [
+    {
+        'feedName': 'backchannel',
+        'feedURL': 'https://medium.com/feed/backchannel'
+    }, {
+        'feedName': 'the-economist',
+        'feedURL': 'https://medium.com/feed/the-economist'
+    }, {
+        'feedName': 'matter',
+        'feedURL': 'https://medium.com/feed/matter'
+    }
+];
 
 const createContentDOM = (content) => {
     let contentDOM = document.createElement('div');
@@ -10,9 +17,9 @@ const createContentDOM = (content) => {
     return contentDOM;
 };
 
-const parseItemToStory = (item) => {
+const parseItemToStory = (item, feedName) => {
     const contentDOM = createContentDOM(item['content:encoded']);
-    const imageURL = contentDOM.querySelector('img').src;
+    const imageURL = contentDOM.querySelector('img') ? contentDOM.querySelector('img').src : '../images/no-image.png';
     const id = item.guid.substring(21);
 
     return {
@@ -25,6 +32,7 @@ const parseItemToStory = (item) => {
         categories: item.categories,
         rawContent: item['content:encoded'],
         bookmarked: false,
+        feedName: feedName
     };
 };
 
@@ -42,24 +50,44 @@ const saveStories = (stories) => {
 };
 
 const getStories = () => {
-    return new Promise(function(resolve, reject){
+
+    return new Promise(function (resolve, reject) {
         let stories = getSavedStories();
 
         if(stories) {
-           resolve(stories);
-           return;
+            resolve(stories);
+            return;
         }
 
+        getAllStoriesFromFeeds(supportedFeeds).then((stories) => {
+            resolve(stories);
+        });
+    });
+};
+
+const getStoriesFromFeed = (supportedFeed) => {
+    return new Promise(function(resolve, reject) {
         const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
         let parser = new RSSParser();
-        let backchannelURL = 'https://medium.com/feed/backchannel';
+        let url = supportedFeed.feedURL;
 
-        parser.parseURL(CORS_PROXY + backchannelURL, function (err, feed) {
-            let stories = feed.items.map((item) => parseItemToStory(item));
-            saveStories(stories);
+        parser.parseURL(CORS_PROXY + url, function (err, feed) {
+            let stories = feed.items.map((item) => parseItemToStory(item, supportedFeed.feedName));
             resolve(stories);
             return;
         });
+    });
+};
+
+const getAllStoriesFromFeeds = (supportedFeeds) => {
+    const promises = supportedFeeds.map((supportedFeed) => getStoriesFromFeed(supportedFeed));
+    return Promise.all(promises).then((feeds) => {
+        let stories = [];
+        feeds.forEach((feed) => {
+            stories = stories.concat(feed);
+        });
+        saveStories(stories);
+        return stories;
     });
 };
 
