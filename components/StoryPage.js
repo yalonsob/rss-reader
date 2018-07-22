@@ -7,6 +7,7 @@ class StoryPage extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         const id = this.props.match.params.id;
         getStories().then((stories) => {
             const story = stories.find((story) => {
