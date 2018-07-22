@@ -1,3 +1,9 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .card-story {
     width: 280px;
     margin: 10px;
