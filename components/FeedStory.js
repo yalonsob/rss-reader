@@ -27,7 +27,10 @@ class FeedStory extends React.Component {
             <div class="card card-story">
                 <img class="card-img-top card-story-image" src={this.props.story.imageURL} alt="Story image" />
                 <div class="card-body card-body-story">
-                    <p class="card-text card-story-details">{feedName(this.props.story.feedName)}</p>
+                    <p class="card-text card-story-details">
+                        {getFeedName(this.props.story.feedName)} - 
+                        <span> {getFormattedDate(this.props.story.date)}</span>
+                    </p>
                     <h5 class="card-title card-title-story">{this.props.story.title}</h5>
                     
                     <div class="card-story-actions">

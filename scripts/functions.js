@@ -26,7 +26,7 @@ const parseItemToStory = (item, feedName) => {
         id: id, 
         title: item.title,
         creator: item.creator,
-        date: item.pubDate,
+        date: moment(item.isoDate),
         link: item.guid,
         imageURL: imageURL,
         categories: item.categories,
@@ -100,15 +100,18 @@ const updateStory = (storyId, newStory) => {
     });
 };
 
-const feedName = (feed) => {
+const getFeedName = (feed) => {
     const feeds = {
         'backchannel': 'Backchannel',
         'the-economist': 'The Economist',
         'matter': 'Matter'
     };
     return feeds[feed];
-}
+};
 
+const getFormattedDate = (date) => {
+    return moment(date).format('DD MMM YYYY');
+};
 
 
 
