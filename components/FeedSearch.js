@@ -1,36 +1,35 @@
 class FeedSearch extends React.Component {
+
     constructor(props) {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleChangeFeed = this.handleChangeFeed.bind(this);
         this.handleOnlyFavorites = this.handleOnlyFavorites.bind(this);
-    }
+    };
  
     handleSearch(e) {
         e.preventDefault();
         const searchText = e.target.value;
         this.props.handleSearch(searchText);
-    }
+    };
 
     handleChangeFeed(e) {
         const feedName = e.target.value;
         document.querySelector('#dropdownMenu').textContent = e.target.textContent;
         this.props.handleChangeFeed(feedName);
-    }
+    };
 
     handleOnlyFavorites(e) {
         this.props.handleOnlyFavorites();
-    }
+    };
 
     handleSubmit(e) {
         e.preventDefault;
-    }
+    };
 
     render() {
         return (
             <div class="search-form">
-
-                
                 <form onSubmit={this.handleSubmit} class="form-inline my-2 my-lg-0">
                     <div class="form-row">
                         <div class="col">
@@ -65,6 +64,5 @@ class FeedSearch extends React.Component {
                 </form>    
             </div>
         )
-    }
-
+    };
 }

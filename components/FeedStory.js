@@ -1,17 +1,18 @@
 class FeedStory extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
             bookmarked: this.props.story.bookmarked
         }
         this.handleFavorite = this.handleFavorite.bind(this);
-    }
+    };
 
     componentWillReceiveProps(nextProps) {
         this.setState(prevState => ({
             bookmarked: nextProps.story.bookmarked
         }));
-    }
+    };
 
     handleFavorite(e) {
         this.setState(prevState => {
@@ -23,11 +24,11 @@ class FeedStory extends React.Component {
             story.bookmarked = this.state.bookmarked;
             updateStory(story.id, story);
         });
-    }
+    };
 
     render() {
-        const addFavoriteIcon = "../images/add_favorite.png";
-        const favoriteIcon = "../images/favorite.png";
+        const addFavoriteIcon = '../images/add_favorite.png';
+        const favoriteIcon = '../images/favorite.png';
         
         return (
             <div class="card card-story">
@@ -60,5 +61,5 @@ class FeedStory extends React.Component {
                 </div>
             </div>
         );
-    }
+    };
 }

@@ -50,7 +50,7 @@ class FeedPage extends React.Component {
             checkbox.checked = this.state.onlyFavorites;
         });
 
-    }
+    };
     
     render() {
         return (
@@ -67,5 +67,5 @@ class FeedPage extends React.Component {
                 </div>    
             </div>
         );
-    }
+    };
 }

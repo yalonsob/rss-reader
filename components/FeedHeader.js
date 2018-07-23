@@ -2,7 +2,7 @@ class FeedHeader extends React.Component {
 
     constructor(props) {
         super(props);
-    }
+    };
 
     render() {
         return (
@@ -20,5 +20,5 @@ class FeedHeader extends React.Component {
                 </header>
             </div>
         )
-    }
+    };
 }

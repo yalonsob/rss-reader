@@ -1,10 +1,11 @@
 class StoryPage extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
             story: null
         }
-    }
+    };
 
     componentDidMount() {
         window.scrollTo(0, 0);
@@ -17,7 +18,7 @@ class StoryPage extends React.Component {
                 story: story
             }));
         });
-    }
+    };
 
     render() {
         let html = { __html: this.state.story && this.state.story.rawContent };
@@ -27,5 +28,5 @@ class StoryPage extends React.Component {
                 <div class="content-story-main" dangerouslySetInnerHTML={html}></div>
             </div>
         )
-    }
+    };
 }
