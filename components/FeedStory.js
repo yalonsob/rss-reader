@@ -7,6 +7,12 @@ class FeedStory extends React.Component {
         this.handleFavorite = this.handleFavorite.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState(prevState => ({
+            bookmarked: nextProps.story.bookmarked
+        }));
+    }
+
     handleFavorite(e) {
         this.setState(prevState => {
             return {
