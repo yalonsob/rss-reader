@@ -11,8 +11,13 @@ header {
     z-index: 10;
 }
 
+.home-logo {
+    width: 150px;
+}
+
 .header-navbar {
     background-color: #76a3ed !important; 
+    border-bottom: 2px solid rgb(70, 122, 190);
 }
 
 .page {
@@ -54,7 +59,7 @@ header {
 
 .feed-container {
     position: relative;
-    top: 130px;
+    top: 150px;
 }
 
 .favorite-btn {
@@ -70,7 +75,7 @@ header {
 .content-story {
     background: white;
     position: relative;
-    top: 40px;
+    top: 60px;
     margin-bottom: 40px;
     border: solid 2px rgb(70, 122, 190);
 }
@@ -95,7 +100,7 @@ header {
 .search-form{
     background: #76a3ed;
     padding: 20px;
-    margin-top: -10px;
+    margin-top: 25px;
     position: fixed;
     width: 100%;
     z-index: 10; 
