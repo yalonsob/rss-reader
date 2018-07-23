@@ -26,8 +26,7 @@ header {
 
 .card-story {
     width: 280px;
-    margin: 10px;
-    float: left;
+    margin: 20px;
 }
 
 .card-body-story {
@@ -60,6 +59,12 @@ header {
 .feed-container {
     position: relative;
     top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .favorite-btn {
