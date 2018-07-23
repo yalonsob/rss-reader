@@ -125,13 +125,14 @@ const getFormattedDate = (date) => {
     return moment(date).format('DD MMM YYYY');
 };
 
-const getSearchedStories = (stories, searchText, feedName) => {
+const getSearchedStories = (stories, searchText, feedName, onlyFavorites) => {
     return stories
         .filter((story) => feedName === 'all' || story.feedName === feedName)
         .filter((story) => {
             const stringified = [story.title, story.categories.join()].join().toLowerCase();
             return stringified.indexOf(searchText) >= 0;
-        });
+        })
+        .filter((story) => !onlyFavorites || story.bookmarked);
 };
 
 

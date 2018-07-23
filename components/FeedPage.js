@@ -4,11 +4,13 @@ class FeedPage extends React.Component {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleChangeFeed = this.handleChangeFeed.bind(this);
+        this.handleOnlyFavorites = this.handleOnlyFavorites.bind(this);
         this.state = {
             stories: [],
             searchedStories: [],
             selectedFeed: 'all',
-            searchText: ''
+            searchText: '',
+            onlyFavorites: false
         };
     };
 
@@ -25,27 +27,40 @@ class FeedPage extends React.Component {
         searchText = searchText.trim();
         this.setState((prevState) => ({
             searchText: searchText,
-            searchedStories: getSearchedStories(prevState.stories, searchText, prevState.selectedFeed)
-            // searchedStories: prevState.stories.filter((story) => {
-            //     const stringified = [story.title, story.categories.join()].join().toLowerCase();
-            //     return stringified.indexOf(searchText) >= 0;
-            // })
+            searchedStories: getSearchedStories(prevState.stories, searchText, prevState.selectedFeed, prevState.onlyFavorites)
         }));
     };
 
     handleChangeFeed(feedName) {
         this.setState((prevState) => ({
             selectedFeed: feedName,
-            searchedStories: getSearchedStories(prevState.stories, prevState.searchText, feedName)
-            // searchedStories: prevState.stories.filter((story) => feedName === 'all' || story.feedName === feedName)
+            searchedStories: getSearchedStories(prevState.stories, prevState.searchText, feedName, prevState.onlyFavorites)
         }));
+    };
+
+    handleOnlyFavorites() {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                onlyFavorites: !prevState.onlyFavorites,
+                searchedStories: getSearchedStories(prevState.stories, prevState.searchText, prevState.selectedFeed, !prevState.onlyFavorites)
+            }
+        }, () => {
+            const checkbox = document.querySelector('#checkbox-favorites');
+            checkbox.checked = this.state.onlyFavorites;
+        });
+
     }
     
     render() {
         return (
             <div>
                 <div>
-                    <FeedSearch handleSearch={this.handleSearch} handleChangeFeed={this.handleChangeFeed} />
+                    <FeedSearch 
+                        handleSearch={this.handleSearch} 
+                        handleChangeFeed={this.handleChangeFeed} 
+                        handleOnlyFavorites={this.handleOnlyFavorites}    
+                    />
                 </div>
                 <div class="container">
                     {this.state.searchedStories.map((story) => <FeedStory story={story} /> )}
