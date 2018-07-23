@@ -11,6 +11,10 @@ header {
     z-index: 10;
 }
 
+.header-navbar {
+    background-color: #76a3ed !important; 
+}
+
 .page {
     margin-top: 50px;
 }
@@ -48,6 +52,11 @@ header {
     justify-content: space-between;
 }
 
+.feed-container {
+    position: relative;
+    top: 130px;
+}
+
 .favorite-btn {
     border: none;
     cursor: pointer;
@@ -80,15 +89,22 @@ header {
 }
 
 .search-form{
-    background: #f8f9fa;
+    background: #76a3ed;
     padding: 20px;
     margin-top: -10px;
-    
+    position: fixed;
+    width: 100%;
+    z-index: 10; 
+    border-bottom: 2px solid rgb(70, 122, 190);  
 }
 
 .search-input {
     margin-left: 10px;
     width: 80% !important;
+}
+
+.search-checkbox {
+    line-height: 35px;
 }
 
 .search-dropdown,

@@ -56,7 +56,7 @@ class FeedSearch extends React.Component {
                             />
                         </div>
                         <div class="col">
-                            <div class="form-check">
+                            <div class="form-check search-checkbox">
                                 <input onClick={this.handleOnlyFavorites} type="checkbox" class="form-check-input" id="checkbox-favorites" />
                                 <label class="form-check-label" for="checkbox-favorites">Only Favorites</label>
                             </div>

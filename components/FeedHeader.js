@@ -8,7 +8,7 @@ class FeedHeader extends React.Component {
         return (
             <div>
                 <header>
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light header-navbar">
                         <ul class="nav navbar-nav">
                             <li role="presentation"><Link to="/">RSS Reader</Link></li>
                         </ul>

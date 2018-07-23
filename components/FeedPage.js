@@ -62,7 +62,7 @@ class FeedPage extends React.Component {
                         handleOnlyFavorites={this.handleOnlyFavorites}    
                     />
                 </div>
-                <div class="container">
+                <div class="container feed-container">
                     {this.state.searchedStories.map((story) => <FeedStory story={story} /> )}
                 </div>    
             </div>
