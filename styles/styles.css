@@ -78,6 +78,12 @@ header {
     text-align: justify;
 }
 
+.search-form{
+    background: #f8f9fa;
+    padding: 20px;
+    margin-top: -10px;
+}
+
 .search-input {
     margin-left: 10px;
     width: 80% !important;

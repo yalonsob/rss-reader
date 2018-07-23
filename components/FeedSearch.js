@@ -23,27 +23,34 @@ class FeedSearch extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class="search-form">
+
+                
                 <form onSubmit={this.handleSubmit} class="form-inline my-2 my-lg-0">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle search-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            All Stories
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="all">All Stories</button>
-                            <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="backchannel">Backchannel</button>
-                            <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="the-economist">The Economist</button>
-                            <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="matter">Matter</button>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle search-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    All Stories
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="all">All Stories</button>
+                                    <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="backchannel">Backchannel</button>
+                                    <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="the-economist">The Economist</button>
+                                    <button onClick={this.handleChangeFeed} class="dropdown-item" type="button" value="matter">Matter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input
+                                onKeyUp={this.handleSearch}
+                                class="form-control mr-sm-2"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                            />
                         </div>
                     </div>
-                    <input 
-                        onKeyUp={this.handleSearch} 
-                        class="form-control mr-sm-2" 
-                        type="search" 
-                        placeholder="Search" 
-                        aria-label="Search" 
-                    />
-                    
                 </form>    
             </div>
         )

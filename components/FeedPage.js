@@ -47,7 +47,9 @@ class FeedPage extends React.Component {
                 <div>
                     <FeedSearch handleSearch={this.handleSearch} handleChangeFeed={this.handleChangeFeed} />
                 </div>
-                {this.state.searchedStories.map((story) => <FeedStory story={story} /> )}
+                <div class="container">
+                    {this.state.searchedStories.map((story) => <FeedStory story={story} /> )}
+                </div>    
             </div>
         );
     }

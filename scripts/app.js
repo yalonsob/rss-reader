@@ -8,7 +8,7 @@ const App = () => (
         <Router>
             <div>
                 <FeedHeader />
-                <div class="container page">
+                <div class="page">
                     <Switch>
                         <Route exact path="/" component={FeedPage} />
                         <Route path="/story/:id" component={StoryPage} />
